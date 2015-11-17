@@ -19,5 +19,5 @@ function back() {
 }
 
 alias gits='git status'
-alias l='ls -CF'
-alias ll='ls -alF'
+alias l='ls -alF'
+alias ll='ls -lF'
