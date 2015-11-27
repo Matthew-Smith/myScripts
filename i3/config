@@ -97,29 +97,40 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $workspace1Name "1: Chrome Dev"
+set $workspace2Name "2: Dev"
+set $workspace3Name "3: Term"
+set $workspace4Name "4: Chrome"
+set $workspace5Name "5: STB Serial"
+set $workspace6Name "6: misc"
+set $workspace7Name "7: misc"
+set $workspace8Name "8: misc"
+set $workspace9Name "9: Windows"
+set $workspace0Name "10: Spotify"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $workspace1Name
+bindsym $mod+2 workspace $workspace2Name
+bindsym $mod+3 workspace $workspace3Name
+bindsym $mod+4 workspace $workspace4Name
+bindsym $mod+5 workspace $workspace5Name
+bindsym $mod+6 workspace $workspace6Name
+bindsym $mod+7 workspace $workspace7Name
+bindsym $mod+8 workspace $workspace8Name
+bindsym $mod+9 workspace $workspace9Name
+bindsym $mod+0 workspace $workspace0Name
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $workspace1Name
+bindsym $mod+Shift+2 move container to workspace $workspace2Name
+bindsym $mod+Shift+3 move container to workspace $workspace3Name
+bindsym $mod+Shift+4 move container to workspace $workspace4Name
+bindsym $mod+Shift+5 move container to workspace $workspace5Name
+bindsym $mod+Shift+6 move container to workspace $workspace6Name
+bindsym $mod+Shift+7 move container to workspace $workspace7Name
+bindsym $mod+Shift+8 move container to workspace $workspace8Name
+bindsym $mod+Shift+9 move container to workspace $workspace9Name
+bindsym $mod+Shift+0 move container to workspace $workspace0Name
 
 # reload the configuration file
 # bindsym $mod+Shift+c reload
@@ -128,7 +139,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock computer
-bindsym $mod+l exec "/home/matthewsmith/.i3/lock"
+bindsym $mod+l exec "~/.i3/lock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -181,11 +192,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Take a screenshot
-bindsym --release Print exec /home/matthewsmith/scripts/screenshot.sh
+bindsym --release Print exec ~/scripts/screenshot.sh
 # bindsym --release Print exec "scrot -s '/var/www/html/Screenshots/%Y.%m.%d-%H.%M.%S.png'"
 bindsym $mod+Print exec "scrot '/var/www/html/Screenshots/%Y.%m.%d-%H.%M.%S.png'"
 bindsym $mod+Shift+Print exec "scrot -u '/var/www/html/Screenshots/%Y.%m.%d-%H.%M.%S.png'"
 # Take a gif screenshot
 for_window [class="FloatingTerm"] floating enable
 bindsym Scroll_Lock exec --no-startup-id terminator -e bash -c 'sh ~/scripts/gifScreenshot.sh' --class FloatingTerm
-
