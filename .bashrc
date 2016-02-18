@@ -22,6 +22,8 @@ alias gits='git status'
 alias l='ls -alF'
 alias ll='ls -lF'
 
+alias buildinator='sudo python3 ~/html/buildinator/buildinator.py -b Unstable-G4Client-PaceDDC4000xzoR101_7251S-NOS_Containerized -d /home/7251s -c ~/html/buildinator/configs'
+
 # git aliases:
 # git config --global alias.co checkout
 # git config --global alias.feature "checkout --track trunk -b"
