@@ -6,8 +6,9 @@
 #
 
 # startup commands
-exec --no-startup-id xrandr --output HDMI2 --auto --primary --left-of VGA1
-exec --no-startup-id feh --bg-scale ~/wallpapers/Cyberpunk2.jpg
+exec --no-startup-id xrandr --output DP2-3 --auto --left-of eDP1 --output DP2-2 --auto --left-of DP2-3
+exec --no-startup-id feh --bg-scale ~/wallpapers/marketAvenue.png
+exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 
 # i3 config file (v4)
 #
@@ -34,8 +35,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
-bindsym $mod+Shift+Return exec google-chrome --disable-web-security --user-data-dir=/home/matthewsmith/no-security-chrome/
+bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec chromium --disable-web-security --user-data-dir=/home/matthewsmith/no-security-chrome/
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -193,9 +194,12 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Take a screenshot
 bindsym --release Print exec ~/scripts/screenshot.sh
-# bindsym --release Print exec "scrot -s '/var/www/html/Screenshots/%Y.%m.%d-%H.%M.%S.png'"
+# bindsym --release Print exec "scrot -s -e 'mv $f ~/http/Screenshots/%Y.%m.%d-%H.%M.%S.png'"
 bindsym $mod+Print exec "scrot '/var/www/html/Screenshots/%Y.%m.%d-%H.%M.%S.png'"
 bindsym $mod+Shift+Print exec "scrot -u '/var/www/html/Screenshots/%Y.%m.%d-%H.%M.%S.png'"
 # Take a gif screenshot
 for_window [class="FloatingTerm"] floating enable
 bindsym Scroll_Lock exec --no-startup-id terminator -e bash -c 'sh ~/scripts/gifScreenshot.sh' --class FloatingTerm
+
+bindsym $mod+m exec xrandr --output DP2-3 --off --output DP2-2 --off
+bindsym $mod+Shift+m exec "xrandr --output DP2-3 --auto --left-of eDP1; & xrandr --output DP2-2 --auto --left-of DP2-3"
