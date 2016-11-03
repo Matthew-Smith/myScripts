@@ -6,7 +6,7 @@
 #
 
 # startup commands
-exec --no-startup-id xrandr --output DP2-3 --auto --left-of eDP1 --output DP2-2 --auto --left-of DP2-3
+exec --no-startup-id ~/.screenlayout/dock.sh
 exec --no-startup-id feh --bg-scale ~/wallpapers/marketAvenue.png
 exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 
@@ -201,5 +201,6 @@ bindsym $mod+Shift+Print exec "scrot -u '/var/www/html/Screenshots/%Y.%m.%d-%H.%
 for_window [class="FloatingTerm"] floating enable
 bindsym Scroll_Lock exec --no-startup-id terminator -e bash -c 'sh ~/scripts/gifScreenshot.sh' --class FloatingTerm
 
-bindsym $mod+m exec xrandr --output DP2-3 --off --output DP2-2 --off
-bindsym $mod+Shift+m exec "xrandr --output DP2-3 --auto --left-of eDP1; & xrandr --output DP2-2 --auto --left-of DP2-3"
+bindsym $mod+p exec --no-startup-id arandr
+bindsym $mod+m exec ~/.screenlayout/dock.sh
+bindsym $mod+Shift+m exec ~/.screenlayout/justLaptop.sh
