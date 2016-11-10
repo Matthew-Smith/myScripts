@@ -9,6 +9,8 @@
 exec --no-startup-id ~/.screenlayout/dock.sh
 exec --no-startup-id feh --bg-scale ~/wallpapers/marketAvenue.png
 exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
+exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
 
 # i3 config file (v4)
 #
