@@ -11,6 +11,7 @@ exec --no-startup-id feh --bg-scale ~/wallpapers/marketAvenue.png
 exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
+exec --no-startup-id notrogen --restore
 
 # i3 config file (v4)
 #
@@ -96,6 +97,9 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# move workspace to the next left Monitor
+bindsym $mod+m move workspace to output left
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -204,5 +208,3 @@ for_window [class="FloatingTerm"] floating enable
 bindsym Scroll_Lock exec --no-startup-id terminator -e bash -c 'sh ~/scripts/gifScreenshot.sh' --class FloatingTerm
 
 bindsym $mod+p exec --no-startup-id arandr
-bindsym $mod+m exec ~/.screenlayout/dock.sh
-bindsym $mod+Shift+m exec ~/.screenlayout/justLaptop.sh

@@ -70,9 +70,9 @@ volume master {
 }
 
 disk "/" {
-    format = "⛁/ %avail"
+    format = "/ %avail"
 }
 
 disk "/home/matthewsmith" {
-    format = "⛁ ~ %avail"
+    format = "~ %avail"
 }
