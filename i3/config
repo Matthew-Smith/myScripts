@@ -7,11 +7,11 @@
 
 # startup commands
 exec --no-startup-id ~/.screenlayout/dock.sh
-exec --no-startup-id feh --bg-scale ~/wallpapers/marketAvenue.png
+# exec --no-startup-id feh --bg-scale ~/wallpapersa/marketAvenue.png
 exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
-exec --no-startup-id notrogen --restore
+exec --no-startup-id nitrogen --restore
 
 # i3 config file (v4)
 #
@@ -21,7 +21,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:Source Sans Pro 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -38,14 +38,15 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec chromium --disable-web-security --user-data-dir=/home/matthewsmith/no-security-chrome/
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show run -theme ~/scripts/royal-sky.rasi
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -146,7 +147,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock computer
-bindsym $mod+l exec "~/.i3/lock"
+bindsym $mod+l exec "~/scripts/lockScript.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -176,10 +177,10 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    status_command i3status
-    tray_output primary
-}
+# bar {
+#     status_command i3status
+#     tray_output primary
+# }
 
 # open up a simple calendar at the mouse location
 bindsym $mod+c exec "gsimplecal"
@@ -208,3 +209,45 @@ for_window [class="FloatingTerm"] floating enable
 bindsym Scroll_Lock exec --no-startup-id terminator -e bash -c 'sh ~/scripts/gifScreenshot.sh' --class FloatingTerm
 
 bindsym $mod+p exec --no-startup-id arandr
+
+##### Theme ####
+
+# class                 border  backgr. text    indicator
+client.focused          #2B83A6 #2B83A6 #FFFFFF #DDDDDD
+client.focused_inactive #212121 #212121 #86888C #292D2E
+client.unfocused        #212121 #212121 #86888C #292D2E
+client.urgent           #2F343A #D64E4E #FFFFFF #D64E4E
+client.placeholder      #212121 #0C0C0C #FFFFFF #212121
+client.background       #212121
+
+# start i3bar to display a workspace bar
+bar {
+    status_command          i3blocks -c ~/.config/i3/i3blocks.conf
+    # status_command          i3blocks
+    tray_output             primary
+    position                bottom
+    strip_workspace_numbers yes
+    separator_symbol        "·"
+    workspace_buttons       yes
+
+    colors {
+            background  #212121
+            statusline  #DDDDDD
+            separator   #666666
+            # class             border  backgr. text
+            focused_workspace   #2B83A6 #2B83A6 #FFFFFF
+            active_workspace    #212121 #212121 #FFFFFF
+            inactive_workspace  #212121 #212121 #86888C
+            urgent_workspace    #2F343A #D64E4E #FFFFFF
+      }
+}
+
+# i3-gaps
+for_window [class="^.*"]                border pixel 0
+for_window [window_role="pop-up"]       floating enable
+for_window [window_role="task_dialog"]  floating enable
+for_window [title="Preferences$"]       floating enable
+
+smart_gaps on
+gaps inner 8
+gaps outer 2
