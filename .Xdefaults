@@ -1,0 +1,39 @@
+! ******************
+! urxvt config
+! ******************
+
+! Disable Perl extension
+! If you do not use the Perl extension features, you can improve the security
+! and speed by disabling Perl extensions completely. 
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+
+! Disable scrollbar
+!URxvt*scrollBar: true
+
+! Scrollbar style - rxvt (default), plain (most compact), next, or xterm
+URxvt.scrollstyle: plain
+URxvt*scrollColor: #0071ff
+
+URxvt*foreground: #f2f2f2
+URxvt*background: #101010
+URxvt*color0: #101010
+URxvt*color1: #f13a21
+URxvt*color2: #93f91d
+URxvt*color3: #ffd00a
+URxvt*color4: #004f9e
+URxvt*color5: #ec0048
+URxvt*color6: #2aa7e7
+URxvt*color7: #f2f2f2
+URxvt*color8: #1d202f
+URxvt*color9: #ff361e
+URxvt*color10: #ffc005
+URxvt*color11: #93ff00
+URxvt*color12: #0071ff
+URxvt*color13: #ef0051
+URxvt*color14: #4bb8fd
+URxvt*color15: #a020f0
+URxvt*transparent: true
+URxvt*shading: 30
+URxvt*fading: 30
+URxvt*font: xft:Hack:size=8
