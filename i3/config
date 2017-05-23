@@ -6,8 +6,7 @@
 #
 
 # startup commands
-exec --no-startup-id ~/.screenlayout/dock.sh
-# exec --no-startup-id feh --bg-scale ~/wallpapersa/marketAvenue.png
+exec --no-startup-id ~/.screenlayout/dock.sho
 exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
@@ -38,8 +37,8 @@ font pango:Source Sans Pro 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec chromium --disable-web-security --user-data-dir=/home/matthewsmith/no-security-chrome/
+bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec chromium-browser --disable-web-security
 
 # kill focused window
 bindsym $mod+Shift+q kill

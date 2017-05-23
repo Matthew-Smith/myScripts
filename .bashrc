@@ -19,8 +19,8 @@ function back() {
 }
 
 alias gits='git status'
-alias l='ls -alF'
-alias ll='ls -lF'
+alias l='ls -alFgG'
+alias ll='ls -lFgG'
 alias myip='ip -f inet addr | grep -Po "inet \K[\d.]+"'
 
 alias buildinator='sudo python3 ~/html/buildinator/buildinator.py -b Unstable-G4Client-PaceDDC4000xzoR101_7251S-NOS_Containerized -d /home/7251s -c ~/html/buildinator/configs'

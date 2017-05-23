@@ -40,11 +40,11 @@ echo "%{c}  %{A:p:}Shutdown%{A}  %{A:r:}Reboot%{A}  %{A:s:}Suspend%{A}  %{A:b
                 exit
                 ;;
             'p')
-                sudo /sbin/shutdown -h now
+                /sbin/shutdown -h now
                 exit
                 ;;
             'r')
-                sudo /sbin/shutdown -r now
+                /sbin/shutdown -r now
                 exit
                 ;;
         esac
